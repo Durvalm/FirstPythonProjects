@@ -70,7 +70,7 @@ travels = {
 print("\nCities    /  Ticket Price  /  Hotel Price  /  Food  /  Transportation  /  language  /")
 print("-------------------------------------------------------------------------------------------")
 for key, value in travels.items():
-    print("{0:10} {1:10} {2:15} {3:11} {4:13}\t\t\t{5}".format(key, value['ticket price'],
+    print("{0:10} {1:10}$ {2:13}$ {3:10}$ {4:12}$\t\t\t{5}".format(key, value['ticket price'],
           value['hotel price'], value['food'], value['transportation'], value['language'],))
 
 # Get inputs about trip
@@ -96,7 +96,7 @@ while running:
     print("\nTotal price for all travels: ")
     for k, v in travels.items():
         total_value = travels[k]['ticket price'] + travels[k]['hotel price'] * days + travels[k]['food'] * days + travels[k]['transportation'] * days
-        print(f"{k}\t\t   {total_value}")
+        print(f"{k}\t\t   {total_value}$")
 
     # Change or not destination
     print("\nIf you would like to change your destination, type (yes), otherwise, type (no).")
@@ -118,7 +118,7 @@ while True:
     travels[city][expense] = price
     new_cost = travels[city][expense]
     cost += new_cost * days
-    print(f"Your New Travel Budget is {cost}")
+    print(f"Your New Travel Budget is {cost}$")
 
 print("\nHere is Your Updated List of Expenses:")
 print("\n" + city + "'s cost: ")
@@ -126,8 +126,8 @@ print("\n" + city + "'s cost: ")
 for key, value in travels[city].items():
     total = value * days
     if value == travels[city]["ticket price"]:
-        print(f"{key}\t{value}")
+        print("{0:15} {1}$".format(key, value))
     if type(value) == int and value != travels[city]["ticket price"]:
-        print(f"{key}\t\t{total}")
-print(f"Total\t\t{cost}")
+        print("{0:15} {1}$".format(key, total))
+print("Total{:15}$".format(cost))
 print(f"\nThanks For Using The App! I Hope You Enjoy Your Visit To {city}.")
